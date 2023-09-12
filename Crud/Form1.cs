@@ -152,7 +152,7 @@ namespace Crud
             }
             else
             {
-                Console.WriteLine("La cartella specificata non esiste.");
+                Console.WriteLine("La cartella specificata non esiste");
             }
         }
         static void OpenFolder(string folderPath)
