@@ -19,7 +19,7 @@ namespace Crud
         Class1 class1 = new Class1();
         public string file;
         public int scelta;
-        public string[] nomecampi = { "Comune", "Provincia", "Regione", "Nome", "Anno inserimento", " Data e ora inserimento", " Identificatore in OpenStreetMap", "Longitudine", "Latitudine", "Mio valore" };
+        public string[] nomecampi = { "Comune", "Provincia", "Regione", "Nome", "Anno inserimento", " Data e ora inserimento", " Identificatore in OpenStreetMap", "Longitudine", "Latitudine", "Mio valore","Cancellazione","Indice" };
         //array che contiene i nomi dei campi
         public bool fatto=false;
        
@@ -27,9 +27,10 @@ namespace Crud
         {
             InitializeComponent();
             listView1.View = View.Details;      //dati organizzati in colonne
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < nomecampi.Length; i++)
             {
-                listView1.Columns.Add(nomecampi[i]);        //crezione delle colonne
+                listView1.Columns.Add(nomecampi[i],150);        //crezione delle colonne
+                
             }
             scelta = 0;
             // Carica i dati dal file CSV e visualizza i punti sulla mappa
@@ -47,7 +48,7 @@ namespace Crud
             GMapProvider.WebProxy = null;
             //center map on moscow
             gMapControl1.Position = new PointLatLng(41.8919300, 12.5113300);
-
+            gMapControl1.ShowCenter = false;
             //zoom min/max; default both = 2
             gMapControl1.MinZoom = 1;
             gMapControl1.MaxZoom = 20;
@@ -64,52 +65,18 @@ namespace Crud
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"il file csv contiene {class1.Contatore().ToString()} campi ");
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"La lunghezza massima di un record é di {class1.Lunghezza().ToString()}");
+           
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            int[] lunghezze = class1.Lunghezzacampi();
-            for (int i = 0; i < lunghezze.Length; i++)
-            {
-                MessageBox.Show($"Campo {i + 1}: {lunghezze[i]}");
-            }
+      
 
+       
 
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if(fatto == false)
-            {
-                fatto = true;
-                class1.Standart();
-            }
-            else
-            {
-                MessageBox.Show("La funzione é giá stata eseguita");
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            string c = guna2TextBox3.Text;
-            string p = guna2TextBox4.Text;
-            string r = guna2TextBox5.Text;
-            string n = guna2TextBox6.Text;
-            string a = guna2TextBox7.Text;
-            string i = guna2TextBox8.Text;
-            string l = guna2TextBox9.Text;
-            string la =guna2TextBox10.Text;
-            string v = guna2TextBox11.Text;
-            string d = guna2TextBox12.Text;
-            class1.AggiuntaRecord(c, p, r, n, a, d, i, l, la, v);
-        }
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -128,36 +95,7 @@ namespace Crud
         {
 
             
-            if (guna2CheckBox1.Checked)
-            {
-                scelta = 1;
-            }
-            else if (guna2CheckBox2.Checked)
-            {
-                scelta = 2;
-            }
-            else if (guna2CheckBox1.Checked && guna2CheckBox2.Checked)
-            {
-                scelta = 3;
-            }
-
-            List<string[]> risultatiList = class1.Modifica(guna2TextBox1.Text, guna2TextBox2.Text,scelta);
-
-            // Converti la lista in una matrice di stringhe
-            string[][] risultati = risultatiList.ToArray();
-
-            // Pulisci la ListView prima di aggiungere nuovi dati
-            listView1.Items.Clear();
-
-            // Aggiungi i dati alla ListView
-            foreach (string[] riga in risultati)
-            {
-
-                var item = new ListViewItem(riga);
-                listView1.Items.Add(item);
-
-            }
-
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -264,6 +202,36 @@ namespace Crud
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
+            if (guna2CheckBox1.Checked)
+            {
+                scelta = 1;
+            }
+            else if (guna2CheckBox2.Checked)
+            {
+                scelta = 2;
+            }
+            else if (guna2CheckBox1.Checked && guna2CheckBox2.Checked)
+            {
+                scelta = 3;
+            }
+
+            List<string[]> risultatiList = class1.Ricerca(guna2TextBox1.Text, guna2TextBox2.Text, scelta);
+
+            // Converti la lista in una matrice di stringhe
+            string[][] risultati = risultatiList.ToArray();
+
+            // Pulisci la ListView prima di aggiungere nuovi dati
+            listView1.Items.Clear();
+
+            // Aggiungi i dati alla ListView
+            foreach (string[] riga in risultati)
+            {
+
+                var item = new ListViewItem(riga);
+                listView1.Items.Add(item);
+
+            }
+
 
         }
 
@@ -284,7 +252,17 @@ namespace Crud
 
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
-
+            string c = guna2TextBox3.Text;
+            string p = guna2TextBox4.Text;
+            string r = guna2TextBox5.Text;
+            string n = guna2TextBox6.Text;
+            string a = guna2TextBox7.Text;
+            string i = guna2TextBox8.Text;
+            string l = guna2TextBox9.Text;
+            string la = guna2TextBox10.Text;
+            string v = guna2TextBox11.Text;
+            string d = guna2TextBox12.Text;
+            class1.AggiuntaRecord(c, p, r, n, a, d, i, l, la, v);
         }
        
        
@@ -317,7 +295,7 @@ namespace Crud
                     foreach (var record in records)
                     {
                         var point = new PointLatLng(record.Latitudine, record.Longitudine);
-                        var marker = new GMarkerGoogle(point, GMarkerGoogleType.green_small);
+                        var marker = new GMarkerGoogle(point, GMarkerGoogleType.gray_small);
 
                         // Crea un overlay
                         GMapOverlay markersOverlay = new GMapOverlay("markers");
@@ -335,6 +313,63 @@ namespace Crud
         {
             public double Longitudine { get; set; }
             public double Latitudine { get; set; }
+        }
+
+        private void mioValoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fatto == false)
+            {
+                fatto = true;
+                class1.Add();
+            }
+            else
+            {
+                MessageBox.Show("La funzione é giá stata eseguita");
+            }
+        }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+        }
+
+        private void guna2CircleButton1_Click_1(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+        }
+
+        private void campiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"il file csv contiene {class1.Contatore().ToString()} campi ");
+        }
+
+        private void lunghezzaSingoliCampiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] lunghezze = class1.Lunghezzacampi();
+            for (int i = 0; i < lunghezze.Length; i++)
+            {
+                MessageBox.Show($"Campo {nomecampi[i]}: {lunghezze[i]}");
+            }
+        }
+
+        private void lunghezzaMassimaRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"La lunghezza massima di un record é di {class1.Lunghezza().ToString()}");
+        }
+
+        private void guna2GradientButton4_Click_2(object sender, EventArgs e)
+        {
+            string c = guna2TextBox3.Text;
+            string p = guna2TextBox4.Text;
+            string r = guna2TextBox5.Text;
+            string n = guna2TextBox6.Text;
+            string a = guna2TextBox7.Text;
+            string i = guna2TextBox8.Text;
+            string l = guna2TextBox9.Text;
+            string la = guna2TextBox10.Text;
+            string v = guna2TextBox11.Text;
+            string d = guna2TextBox12.Text;
+            class1.Modifica(int.Parse(guna2TextBox13.Text), c, p, r, n, a, i, l, la, v, d);
         }
     }
 }

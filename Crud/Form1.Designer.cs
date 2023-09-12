@@ -72,6 +72,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2TextBox13 = new Guna.UI2.WinForms.Guna2TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,6 +170,7 @@
             this.campiToolStripMenuItem.Name = "campiToolStripMenuItem";
             this.campiToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.campiToolStripMenuItem.Text = "Campi";
+            this.campiToolStripMenuItem.Click += new System.EventHandler(this.campiToolStripMenuItem_Click);
             // 
             // lunghezzeToolStripMenuItem
             // 
@@ -183,12 +187,14 @@
             this.lunghezzaMassimaRecordToolStripMenuItem.Name = "lunghezzaMassimaRecordToolStripMenuItem";
             this.lunghezzaMassimaRecordToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.lunghezzaMassimaRecordToolStripMenuItem.Text = "Lunghezza massima record";
+            this.lunghezzaMassimaRecordToolStripMenuItem.Click += new System.EventHandler(this.lunghezzaMassimaRecordToolStripMenuItem_Click);
             // 
             // lunghezzaSingoliCampiToolStripMenuItem
             // 
             this.lunghezzaSingoliCampiToolStripMenuItem.Name = "lunghezzaSingoliCampiToolStripMenuItem";
             this.lunghezzaSingoliCampiToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.lunghezzaSingoliCampiToolStripMenuItem.Text = "Lunghezza singoli campi";
+            this.lunghezzaSingoliCampiToolStripMenuItem.Click += new System.EventHandler(this.lunghezzaSingoliCampiToolStripMenuItem_Click);
             // 
             // aggiuntaToolStripMenuItem
             // 
@@ -205,6 +211,7 @@
             this.mioValoreToolStripMenuItem.Name = "mioValoreToolStripMenuItem";
             this.mioValoreToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.mioValoreToolStripMenuItem.Text = "Mio valore";
+            this.mioValoreToolStripMenuItem.Click += new System.EventHandler(this.mioValoreToolStripMenuItem_Click);
             // 
             // guna2DateTimePicker1
             // 
@@ -213,7 +220,7 @@
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(751, 1);
+            this.guna2DateTimePicker1.Location = new System.Drawing.Point(763, 0);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -705,11 +712,72 @@
             this.gMapControl1.Zoom = 0D;
             this.gMapControl1.Load += new System.EventHandler(this.gMapControl1_Load);
             // 
+            // guna2CircleButton1
+            // 
+            this.guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2CircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2CircleButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton1.Location = new System.Drawing.Point(242, 290);
+            this.guna2CircleButton1.Name = "guna2CircleButton1";
+            this.guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleButton1.Size = new System.Drawing.Size(65, 65);
+            this.guna2CircleButton1.TabIndex = 57;
+            this.guna2CircleButton1.Text = "CLEAR";
+            this.guna2CircleButton1.Click += new System.EventHandler(this.guna2CircleButton1_Click_1);
+            // 
+            // guna2GradientButton4
+            // 
+            this.guna2GradientButton4.Animated = true;
+            this.guna2GradientButton4.BorderRadius = 5;
+            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(211)))), ((int)(((byte)(199)))));
+            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(81)))), ((int)(((byte)(112)))));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton4.Location = new System.Drawing.Point(242, 204);
+            this.guna2GradientButton4.Name = "guna2GradientButton4";
+            this.guna2GradientButton4.Size = new System.Drawing.Size(180, 45);
+            this.guna2GradientButton4.TabIndex = 58;
+            this.guna2GradientButton4.Text = "Modifica";
+            this.guna2GradientButton4.Click += new System.EventHandler(this.guna2GradientButton4_Click_2);
+            // 
+            // guna2TextBox13
+            // 
+            this.guna2TextBox13.Animated = true;
+            this.guna2TextBox13.BorderRadius = 5;
+            this.guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox13.DefaultText = "";
+            this.guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(45)))), ((int)(((byte)(76)))));
+            this.guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox13.Location = new System.Drawing.Point(242, 255);
+            this.guna2TextBox13.Name = "guna2TextBox13";
+            this.guna2TextBox13.PasswordChar = '\0';
+            this.guna2TextBox13.PlaceholderText = "";
+            this.guna2TextBox13.SelectedText = "";
+            this.guna2TextBox13.Size = new System.Drawing.Size(180, 18);
+            this.guna2TextBox13.TabIndex = 59;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.guna2TextBox13);
+            this.Controls.Add(this.guna2GradientButton4);
+            this.Controls.Add(this.guna2CircleButton1);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -798,6 +866,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox13;
     }
 }
 
