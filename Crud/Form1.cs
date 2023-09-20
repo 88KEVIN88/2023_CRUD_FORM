@@ -287,20 +287,20 @@ namespace Crud
             {
                 using (var csv = new CsvReader(reader, new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    Delimiter = "," // Imposta il separatore su punto e virgola
+                    Delimiter = ";" // Imposta il separatore su punto e virgola
                 }))
                 {
-                    var records = csv.GetRecords<CSVDataPoint>(); // Assicurati che CSVDataPoint sia la classe corretta per i tuoi dati CSV
+                    var records = csv.GetRecords<CSVDataPoint>(); 
 
                     foreach (var record in records)
                     {
                         var point = new PointLatLng(record.Latitudine, record.Longitudine);
                         var marker = new GMarkerGoogle(point, GMarkerGoogleType.gray_small);
 
-                        // Crea un overlay
+                        // Creare un overlay
                         GMapOverlay markersOverlay = new GMapOverlay("markers");
 
-                        // Aggiungi il marker all'overlay
+                        // Aggiungere il marker all'overlay
                         markersOverlay.Markers.Add(marker);
 
                         // Aggiungi l'overlay alla mappa
