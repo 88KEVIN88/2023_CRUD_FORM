@@ -15,7 +15,7 @@ namespace Crud
 {
     public partial class Form1 : Form
     {
-        public string filepath = @"D:\Programmi\Crud\Crud\bin\Debug\output.csv";
+        public string filepath = @"output.csv";
         Class1 class1 = new Class1();
         public string file;
         public int scelta;
