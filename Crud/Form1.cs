@@ -287,7 +287,7 @@ namespace Crud
             {
                 using (var csv = new CsvReader(reader, new CsvHelper.Configuration.CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    Delimiter = ";" // Imposta il separatore su punto e virgola
+                    Delimiter = "," // Imposta il separatore su  virgola
                 }))
                 {
                     var records = csv.GetRecords<CSVDataPoint>(); 
