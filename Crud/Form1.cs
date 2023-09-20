@@ -163,7 +163,7 @@ namespace Crud
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Si è verificato un errore durante l'apertura della cartella: {ex.Message}");
+                MessageBox.Show($"Si è verificato un errore durante l'apertura della cartella: {ex.Message}");
             }
         }
 
@@ -309,7 +309,7 @@ namespace Crud
                 }
             }
         }
-        public class CSVDataPoint
+        public class CSVDataPoint //funzione che prende i valori di longitudine e di latitudine dal file csv
         {
             public double Longitudine { get; set; }
             public double Latitudine { get; set; }
